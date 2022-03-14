@@ -1,0 +1,78 @@
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+}
+a {
+    text-decoration: none;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: 400;
+    color: firebrick;
+}
+
+.login {
+    font-size: 0.8em;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 3px 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}
+
+.login:hover {
+    opacity: 80%;
+}
+
+.categories > ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.categories > ul > li {
+    flex-grow: 1;
+    padding: 0.3rem;
+    font-weight: 500;
+    border: 2px solid;
+    color:aliceblue;
+    opacity: 0.7;
+}
+
+.categories > ul > li:hover {
+    opacity: 1;
+}
+
+.categories > ul > li > a {
+    text-align: center;
+    color: inherit;
+    display: block;
+}
+
+.categories > ul > li {
+    background-color: brown;
+}
+
+.categories >ul > li:nth-child(3n) {
+    background-color: brown;
+}
+
+.categories >ul > li:nth-child(3n+1) {
+    background-color: darkcyan;
+}
+
+.categories >ul > li:nth-child(3n+2) {
+    background-color: coral;
+}
