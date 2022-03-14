@@ -3,6 +3,12 @@ body {
     font-family: 'Nunito', sans-serif;
     font-weight: 300;
 }
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
 a {
     text-decoration: none;
 }
@@ -11,7 +17,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 0;
+    padding: 12px 0;
 }
 
 .logo {
@@ -40,6 +46,7 @@ a {
     list-style: none;
     margin: 0;
     flex-wrap: wrap;
+    padding: 0;
 }
 
 .categories > ul > li {
@@ -75,4 +82,70 @@ a {
 
 .categories >ul > li:nth-child(3n+2) {
     background-color: coral;
+}
+
+.article {
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 15px;
+}
+
+.art-content {
+    text-align: justify;
+    font-weight: 400;
+}
+
+.art-header {
+    margin: 0;
+}
+
+.art-info {
+    font-size: 0.8rem;
+    color: rgb(53, 26, 9)
+}
+
+.art-link,
+.art-link:visited {
+    word-wrap: break-word;
+    color: #007AFF;
+}
+
+.vote-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.votes-number {
+    display: inline;
+    color: #007AFF;
+}
+
+.vote-bar > p {
+    margin: 0 4px;
+}
+
+.vote-up,
+.vote-down
+{
+    color: darkgray;
+}
+
+.vote-up:hover {
+    color: blue;
+}
+
+.vote-down:hover {
+    color: red;
+}
+
+footer {
+    margin-top: 15px;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8rem;
 }
