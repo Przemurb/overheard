@@ -1,3 +1,20 @@
 DROP DATABASE IF EXISTS overheard;
 CREATE DATABASE overheard CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci;
 USE overheard;
+
+CREATE TABLE IF NOT EXISTS category (
+    id INT PRIMARY KEY  AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL UNIQUE,
+    description VARCHAR(500)
+);
+
+CREATE TABLE IF NOT EXISTS article (
+    id INT PRIMARY KEY  AUTO_INCREMENT,
+    title VARCHAR(80) NOT NULL,
+    url VARCHAR(500) NOT NULL UNIQUE,
+    description VARCHAR(500) NOT NULL,
+    date DATETIME NOT NULL,
+    category_id INT NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES category(id)
+);
+
