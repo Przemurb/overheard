@@ -47,7 +47,7 @@ public class ArticleDao {
         String url = resultSet.getString("url");
         String description = resultSet.getString("description");
         LocalDateTime date = resultSet.getTimestamp("date").toLocalDateTime();
-        int categoryId = resultSet.getInt("category-id");
+        int categoryId = resultSet.getInt("category_id");
         return new Article(id, title, url, description, date, categoryId);
     }
 }

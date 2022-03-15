@@ -2,9 +2,8 @@
     <Resource name="jdbc/overheard"
               factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
               type="javax.sql.DataSource"
-              uername="root"
+              username="root"
               password="admin"
               driverClassName="com.mysql.cj.jdbc.Driver"
-              url="jdbc:mysql://localhost:3306/overheard?serverTimezone=UTC"
-    />
+              url="jdbc:mysql://localhost:3306/overheard?serverTimezone=UTC"/>
 </Context>
