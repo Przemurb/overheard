@@ -1,30 +1,19 @@
 package com.example.overheard.main.category;
 
-import com.example.overheard.db.DataSourceProvider;
+import com.example.overheard.main.common.BaseDao;
 
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CategoryDao {
-    private final DataSource dataSource;
-
-    public CategoryDao() {
-        try {
-            this.dataSource = DataSourceProvider.getDataSource();
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        }
-    }
+public class CategoryDao extends BaseDao {
 
     public List<Category> findAll() {
         final String sql = "SELECT * FROM category";
 
         try(
-        Connection connection = dataSource.getConnection();
+        Connection connection = getConnection();
         Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(sql);
             List<Category> categories = new ArrayList<>();
@@ -40,7 +29,7 @@ public class CategoryDao {
 
     public Optional<Category> findById (int id) {
         final String sql = "SELECT * FROM category WHERE id=?";
-        try(Connection connection = dataSource.getConnection();
+        try(Connection connection = getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();

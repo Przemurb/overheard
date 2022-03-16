@@ -1,30 +1,19 @@
 package com.example.overheard.main.article;
 
-import com.example.overheard.db.DataSourceProvider;
+import com.example.overheard.main.common.BaseDao;
 
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArticleDao {
-    private final DataSource dataSource;
-
-    public ArticleDao() {
-        try {
-            this.dataSource = DataSourceProvider.getDataSource();
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        }
-    }
+public class ArticleDao extends BaseDao {
 
     public List<Article> findAll() {
         final String sql = "SELECT * FROM article";
 
         try (
-                Connection connection = dataSource.getConnection();
+                Connection connection = getConnection();
                 Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(sql);
             List<Article> allArticles = new ArrayList<>();
@@ -42,7 +31,7 @@ public class ArticleDao {
         final String sql = "SELECT * FROM article WHERE category_id=?";
 
         try (
-                Connection connection = dataSource.getConnection();
+                Connection connection = getConnection();
                 PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
