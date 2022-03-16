@@ -16,6 +16,13 @@ public class ArticleService {
                 .collect(Collectors.toList());
     }
 
+    public List<ArticleDto>findByCategory (int id) {
+        return articleDao.findByCategory(id)
+                .stream()
+                .map(ArticleMapper::map)
+                .collect(Collectors.toList());
+    }
+
     private static class ArticleMapper {
         static ArticleDto map(Article article) {
             return new ArticleDto(article.getTitle(), article.getUrl(), article.getDescription(), article.getDate());

@@ -39,6 +39,20 @@ a {
 .login:hover {
     opacity: 80%;
 }
+.category_name {
+    background-color: brown;
+    opacity: 80%;
+    font-size: x-large;
+    color: aliceblue;
+    padding-left: 15px;
+    border-radius: 5px;
+}
+.category_description {
+    opacity: 80%;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: justify;
+}
 
 .categories > ul {
     display: flex;

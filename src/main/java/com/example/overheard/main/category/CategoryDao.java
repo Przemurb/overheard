@@ -4,12 +4,10 @@ import com.example.overheard.db.DataSourceProvider;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CategoryDao {
     private final DataSource dataSource;
@@ -36,6 +34,23 @@ public class CategoryDao {
             }
             return categories;
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Optional<Category> findById (int id) {
+        final String sql = "SELECT * FROM category WHERE id=?";
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                Category category = mapRecord(resultSet);
+                return Optional.of(category);
+            } else {
+                return Optional.empty();
+            }
+        }catch (SQLException e) {
             throw new RuntimeException(e);
         }
 

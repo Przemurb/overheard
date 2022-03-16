@@ -10,9 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Zasłyszane, serwis społecznościowy o różnych ciekawostkach">
     <meta name="keyword" content="zasłyszane, ciekawostki, komentarze, newsy, plotki">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/main.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/fontello.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/fontello.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +40,8 @@
     </aside>
 
     <main>
+        <h1 class="category_name">${requestScope.category.name}</h1>
+        <p class="category_description">${requestScope.category.description}</p>
         <c:forEach var="article" items="${requestScope.articles}">
             <article class="article">
                 <h2 class="art-header"><c:out value="${article.title}"/></h2>

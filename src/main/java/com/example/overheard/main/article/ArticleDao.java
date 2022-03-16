@@ -4,10 +4,7 @@ import com.example.overheard.db.DataSourceProvider;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +20,12 @@ public class ArticleDao {
         }
     }
 
-    public List<Article>findAll() {
+    public List<Article> findAll() {
         final String sql = "SELECT * FROM article";
 
-        try(
-        Connection connection = dataSource.getConnection();
-        Statement statement = connection.createStatement()) {
+        try (
+                Connection connection = dataSource.getConnection();
+                Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(sql);
             List<Article> allArticles = new ArrayList<>();
             while (resultSet.next()) {
@@ -36,7 +33,26 @@ public class ArticleDao {
                 allArticles.add(article);
             }
             return allArticles;
-        }catch (SQLException e) {
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Article> findByCategory(int id) {
+        final String sql = "SELECT * FROM article WHERE category_id=?";
+
+        try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            List<Article> articles = new ArrayList<>();
+            while (resultSet.next()) {
+                Article article = mapRecord(resultSet);
+                articles.add(article);
+            }
+            return articles;
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
