@@ -24,20 +24,20 @@
 <div class="container">
     <header>
         <nav class="topbar">
-            <a href="#" class="logo">
+            <a href="${pageContext.request.contextPath}" class="logo">
                 <i class="icon-drupal"></i>
                 OverHeard - Zasłyszane
             </a>
             <a href="#" class="login">Zaloguj</a>
         </nav>
     </header>
-    <asside class="categories">
+    <aside class="categories">
         <ul>
-            <li><a href="#">Rozrywka</a></li>
-            <li><a href="#">Technologia</a></li>
-            <li><a href="#">Nowinki</a></li>
+            <c:forEach var="category" items="${requestScope.categories}">
+                <li><a href="${pageContext.request.contextPath.concat('/category?id=').concat(category.id)}">${category.name}</a></li>
+            </c:forEach>
         </ul>
-    </asside>
+    </aside>
 
     <main>
         <c:forEach var="article" items="${requestScope.articles}">
