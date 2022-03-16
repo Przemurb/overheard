@@ -13,8 +13,8 @@ import java.util.List;
 
 @WebServlet(name = "HomeController", value = "")
 public class HomeController extends HttpServlet {
-    private ArticleService articleService = new ArticleService();
-    private CategoryService categoryService = new CategoryService();
+    private final ArticleService articleService = new ArticleService();
+    private final CategoryService categoryService = new CategoryService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,6 +22,6 @@ public class HomeController extends HttpServlet {
         request.setAttribute("articles", articles);
         List<CategoryDto> categories = categoryService.findAllCategoryNames();
         request.setAttribute("categories", categories);
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/index.jsp").forward(request, response);
     }
 }

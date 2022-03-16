@@ -1,0 +1,9 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<nav class="topbar">
+    <a href="${pageContext.request.contextPath}" class="logo">
+        <i class="icon-drupal"></i>
+        OverHeard - Zasłyszane
+    </a>
+    <a href="#" class="login">Zaloguj</a>
+</nav>
