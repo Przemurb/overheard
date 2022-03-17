@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Overheard - Zaloguj się</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zasłyszane, serwis społecznościowy o różnych ciekawostkach">
+    <meta name="keyword" content="zasłyszane, ciekawostki, komentarze, newsy, plotki">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+
+    <link rel="stylesheet" href="../../../styles/add-article.css">
+    <link rel="stylesheet" href="../../../styles/forms.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="stylesheet" href="../../../styles/fontello.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="topbar">
+            <a href="#" class="logo">
+                <i class="icon-drupal"></i> 
+                OverHeard - Zasłyszane
+            </a>
+            <a href="#" class="login">Zaloguj</a>
+        </nav>
+
+        <form action="#" method="post" class="article-form">
+            <h2 class="article-title">Dodaj ciekawostkę</h2>
+            <input name="title" placeholder="Tytuł" required>
+            <input name="url" placeholder="URL" type="url" required>
+            <select>
+                <option>Biznes</option>
+                <option>Rozrywka</option>
+                <option>Polityka</option>
+            </select>
+            <textarea name="content" placeholder="Opis..."></textarea>
+            <button class="confirm-button">Dodaj</button>
+        </form>
+
+        <footer>OverHeard &copy; developed by Przemysław Urban with JavaStart.pl</footer>
+        
+    </div>
+</body>
+</html>

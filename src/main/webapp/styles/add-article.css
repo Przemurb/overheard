@@ -1,0 +1,29 @@
+.article-form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #BDBDBD;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+.article-form>* {
+    font-size: 1rem;
+    margin: 15px;
+}
+
+.article-form>textarea {
+    height: 5rem;
+    font: 400;
+    resize: vertical;
+}
+
+.article-form>*:not(.article-title) {
+    padding: 20px;
+    border: 1px solid #BDBDBD;
+}
+
+.article-title {
+    margin: 15px auto;
+}
+
