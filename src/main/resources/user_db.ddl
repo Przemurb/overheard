@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS user (
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     registration_date DATETIME NOT NULL,
-    password VARCHAR(50) NOT NULL
+    password VARCHAR(500) NOT NULL
     );
 
 CREATE TABLE IF NOT EXISTS user_role (
