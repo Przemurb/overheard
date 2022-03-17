@@ -12,7 +12,7 @@
 
 <body>
 <div class="container">
-    <%@include file="../pageParts/header.jspf"%>}
+    <%@include file="../pageParts/header.jspf"%>
 
     <form action="j_security_check" method="post" class="user-form">
         <h2 class="title">Zaloguj sie na Overheard</h2>

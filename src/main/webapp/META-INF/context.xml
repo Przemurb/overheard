@@ -7,9 +7,9 @@
               driverClassName="com.mysql.cj.jdbc.Driver"
               url="jdbc:mysql://localhost:3306/overheard?serverTimezone=UTC"/>
 
-    <Realm classname="org.apache.catalina.realm.DataSourceRealm"
-           dataSouceName="jdbc/overheard"
-           localdataSource="true"
+    <Realm className="org.apache.catalina.realm.DataSourceRealm"
+           dataSourceName="jdbc/overheard"
+           localDataSource="true"
            userTable="user"
            userNameCol="username"
            userCredCol="password"
