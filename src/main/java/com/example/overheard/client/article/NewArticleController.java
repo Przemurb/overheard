@@ -32,6 +32,8 @@ public class NewArticleController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         NewArticleDto newArticle = createNewArticle(request);
+        articleService.add(newArticle);
+        response.sendRedirect(request.getContextPath());
     }
 
     private NewArticleDto createNewArticle(HttpServletRequest request) {
@@ -39,7 +41,7 @@ public class NewArticleController extends HttpServlet {
         return new NewArticleDto(
                 request.getParameter("title"),
                 request.getParameter("url"),
-                request.getParameter("description"),
+                request.getParameter("content"),
                 Integer.valueOf(request.getParameter("categoryId")),
                 username);
     }

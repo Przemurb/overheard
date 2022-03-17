@@ -1,5 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -12,14 +13,14 @@
     <div class="container">
         <%@include file="../pageParts/header.jspf"%>
 
-        <form action="#" method="post" class="article-form">
+        <form action="${pageContext.request.contextPath}/article/new" method="post" class="article-form">
             <h2 class="article-title">Dodaj ciekawostkę</h2>
             <input name="title" placeholder="Tytuł" required>
             <input name="url" placeholder="URL" type="url" required>
-            <select>
-                <option>Biznes</option>
-                <option>Rozrywka</option>
-                <option>Polityka</option>
+            <select name="categoryId">
+                <c:forEach var="category" items="${requestScope.categories}">
+                    <option value="${category.id}">${category.name} </option>
+                </c:forEach>
             </select>
             <textarea name="content" placeholder="Opis..."></textarea>
             <button class="confirm-button">Dodaj</button>

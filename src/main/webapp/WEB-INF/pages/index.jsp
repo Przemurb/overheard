@@ -24,7 +24,7 @@
     </aside>
 
     <main>
-        <%@include file="../pageParts/article-list.jspf"%>>
+        <%@include file="../pageParts/article-list.jspf"%>
     </main>
 
     <footer>
