@@ -12,7 +12,7 @@
 
 <body>
     <div class="container">
-        <%@include file="../pageParts/header.jspf"%>}
+        <%@include file="../pageParts/header.jspf"%>
 
         <form action="${pageContext.request.contextPath}/signup" method="post" class="user-form">
             <h2 class="title">Zarejestruj sie na Overheard</h2>

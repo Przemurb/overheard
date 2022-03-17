@@ -1,15 +1,15 @@
 package com.example.overheard.main.user;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class User {
     private Integer id;
     private String username;
     private String email;
     private String password;
-    private LocalTime registrationDate;
+    private LocalDateTime registrationDate;
 
-    public User(String username, String email, String password, LocalTime registrationDate) {
+    public User(String username, String email, String password, LocalDateTime registrationDate) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -36,7 +36,7 @@ public class User {
         return password;
     }
 
-    public LocalTime getRegistrationDate() {
+    public LocalDateTime getRegistrationDate() {
         return registrationDate;
     }
 }
