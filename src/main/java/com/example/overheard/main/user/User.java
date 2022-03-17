@@ -15,6 +15,10 @@ public class User {
         this.password = password;
         this.registrationDate = registrationDate;
     }
+    public User(Integer id, String username, String email, String password, LocalDateTime registrationDate) {
+        this(username, email, password, registrationDate);
+        this.id = id;
+    }
 
     public void setPassword(String password) {
         this.password = password;

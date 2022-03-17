@@ -53,6 +53,29 @@ public class ArticleDao extends BaseDao {
         String description = resultSet.getString("description");
         LocalDateTime date = resultSet.getTimestamp("date").toLocalDateTime();
         int categoryId = resultSet.getInt("category_id");
-        return new Article(id, title, url, description, date, categoryId);
+        int userId = resultSet.getInt("user_id");
+        return new Article(id, title, url, description, date, categoryId, userId);
+    }
+
+    public void save(Article article) {
+        final String sql = "INSERT INTO article (title, url, description, date, category_id, user_id) VALUES (?,?,?,?,?,?)";
+        try(Connection connection = getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            statement.setString(1, article.getTitle());
+            statement.setString(2, article.getUrl());
+            statement.setString(3, article.getDescription());
+            statement.setObject(4, article.getDate());
+            statement.setInt(5, article.getCategoryId());
+            statement.setInt(6, article.getUserId());
+            statement.executeUpdate();
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            if(generatedKeys.next()) {
+                article.setId(generatedKeys.getInt(1));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }

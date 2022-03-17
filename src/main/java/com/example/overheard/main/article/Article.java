@@ -9,14 +9,24 @@ public class Article {
     private String description;
     private LocalDateTime date;
     private Integer categoryId;
+    private Integer userId;
 
-    public Article(Integer id, String title, String url, String description, LocalDateTime date, Integer categoryId) {
+    public Article(Integer id, String title, String url, String description, LocalDateTime date, Integer categoryId, Integer userId) {
+        this(title, url, description, date, categoryId, userId);
         this.id = id;
+    }
+
+    public Article(String title, String url, String description, LocalDateTime date, Integer categoryId, Integer userId) {
         this.title = title;
         this.url = url;
         this.description = description;
         this.date = date;
         this.categoryId = categoryId;
+        this.userId = userId;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getId() {
@@ -25,6 +35,10 @@ public class Article {
 
     public String getTitle() {
         return title;
+    }
+
+    public Integer getUserId() {
+        return userId;
     }
 
     public String getUrl() {
