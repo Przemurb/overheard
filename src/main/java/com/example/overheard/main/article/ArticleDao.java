@@ -10,7 +10,7 @@ import java.util.List;
 public class ArticleDao extends BaseDao {
 
     public List<Article> findAll() {
-        final String sql = "SELECT * FROM article";
+        final String sql = "SELECT * FROM article ORDER BY id DESC";
 
         try (
                 Connection connection = getConnection();
@@ -28,7 +28,7 @@ public class ArticleDao extends BaseDao {
     }
 
     public List<Article> findByCategory(int id) {
-        final String sql = "SELECT * FROM article WHERE category_id=?";
+        final String sql = "SELECT * FROM article WHERE category_id=? ORDER BY id DESC";
 
         try (
                 Connection connection = getConnection();
