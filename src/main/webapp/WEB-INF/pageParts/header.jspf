@@ -5,5 +5,12 @@
         <i class="icon-drupal"></i>
         OverHeard - Zasłyszane
     </a>
-    <a href="#" class="login">Zaloguj</a>
+    <c:choose>
+        <c:when test="${empty pageContext.request.userPrincipal}">
+            <a href="${pageContext.request.contextPath}/login" class="login">Zaloguj</a>
+        </c:when>
+        <c:when test="${not empty pageContext.requrest.userPrincipal}">
+            <a href="${pageContext.request.contextPath}/logout" class="login">Wyloguj</a>
+        </c:when>
+    </c:choose>
 </nav>
