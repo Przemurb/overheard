@@ -50,6 +50,5 @@ public class VoteDao extends BaseDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

@@ -12,7 +12,7 @@
             <a href="${pageContext.request.contextPath.concat('/article/vote?id=').concat(article.id).concat('&type=UP')}" class="vote-up">
                 <i class="icon-thumbs-up"></i>
             </a>
-            <p class="votes-number">32</p>
+            <p class="votes-number">${article.voteSum}</p>
             <a href="${pageContext.request.contextPath.concat('/article/vote?id=').concat(article.id).concat('&type=DOWN')}" class="vote-down">
                 <i class="icon-thumbs-down"></i>
             </a>
