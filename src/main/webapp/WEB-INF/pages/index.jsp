@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Overheard - Zasłyszane</title>
-    <%@include file="../pageParts/stylesheets.jspf"%>>
+    <%@include file="../pageParts/stylesheets.jspf"%>
 </head>
 
 <body>
