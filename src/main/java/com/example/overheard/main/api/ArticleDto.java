@@ -8,16 +8,22 @@ public class ArticleDto {
     private String url;
     private String description;
     private LocalDateTime date;
+    private int voteSum;
 
-    public ArticleDto(Integer id, String title, String url, String description, LocalDateTime date) {
+    public ArticleDto(Integer id, String title, String url, String description, LocalDateTime date, int voteSum) {
         this.id = id;
         this.title = title;
         this.url = url;
         this.description = description;
         this.date = date;
+        this.voteSum = voteSum;
     }
     public Integer getId() {
         return id;
+    }
+
+    public int getVoteSum() {
+        return voteSum;
     }
 
     public String getTitle() {

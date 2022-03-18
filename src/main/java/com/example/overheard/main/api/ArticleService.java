@@ -3,6 +3,7 @@ package com.example.overheard.main.api;
 import com.example.overheard.main.article.Article;
 import com.example.overheard.main.article.ArticleDao;
 import com.example.overheard.main.user.UserDao;
+import com.example.overheard.main.vote.VoteDao;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -32,9 +33,11 @@ public class ArticleService {
     }
     private static class ArticleMapper {
         private final UserDao userDao = new UserDao();
+        private final VoteDao voteDao = new VoteDao();
 
         ArticleDto map(Article article) {
-            return new ArticleDto(article.getId(), article.getTitle(), article.getUrl(), article.getDescription(), article.getDate());
+            return new ArticleDto(article.getId(), article.getTitle(), article.getUrl(), article.getDescription(),
+                    article.getDate(), voteDao.sumVoteByArticleId(article.getId()));
         }
 
         Article map(NewArticleDto article) {
