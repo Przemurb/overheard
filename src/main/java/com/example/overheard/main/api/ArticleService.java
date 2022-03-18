@@ -34,7 +34,7 @@ public class ArticleService {
         private final UserDao userDao = new UserDao();
 
         ArticleDto map(Article article) {
-            return new ArticleDto(article.getTitle(), article.getUrl(), article.getDescription(), article.getDate());
+            return new ArticleDto(article.getId(), article.getTitle(), article.getUrl(), article.getDescription(), article.getDate());
         }
 
         Article map(NewArticleDto article) {
