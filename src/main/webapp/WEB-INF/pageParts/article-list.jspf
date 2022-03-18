@@ -9,11 +9,11 @@
         <a href="<c:out value="${article.url}"/>" target="_blank" class="art-link"><c:out value="${article.url}"/></a>
         <p class="art-content"><c:out value="${article.description}"/></p>
         <section class="vote-bar">
-            <a href="#" class="vote-up">
+            <a href="${pageContext.request.contextPath.concat('/article/vote?id=').concat(article.id).concat('&type=UP')}" class="vote-up">
                 <i class="icon-thumbs-up"></i>
             </a>
             <p class="votes-number">32</p>
-            <a href="#" class="vote-down">
+            <a href="${pageContext.request.contextPath.concat('/article/vote?id=').concat(article.id).concat('&type=DOWN')}" class="vote-down">
                 <i class="icon-thumbs-down"></i>
             </a>
         </section>
