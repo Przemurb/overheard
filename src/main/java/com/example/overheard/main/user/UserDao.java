@@ -62,6 +62,22 @@ public class UserDao extends BaseDao {
         }
     }
 
+    public Optional<User> findById (int id) {
+        final String sql = "SELECT * FROM user WHERE user.id=?";
+        try (Connection connection = getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()) {
+                return Optional.of(mapRecord(resultSet));
+            } else {
+                return Optional.empty();
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private User mapRecord(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt("id");
         String username = resultSet.getString("username");

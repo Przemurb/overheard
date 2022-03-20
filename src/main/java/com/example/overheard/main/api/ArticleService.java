@@ -36,8 +36,9 @@ public class ArticleService {
         private final VoteDao voteDao = new VoteDao();
 
         ArticleDto map(Article article) {
+            String author = userDao.findById(article.getId()).orElseThrow().getUsername();
             return new ArticleDto(article.getId(), article.getTitle(), article.getUrl(), article.getDescription(),
-                    article.getDate(), voteDao.sumVoteByArticleId(article.getId()));
+                    article.getDate(), voteDao.sumVoteByArticleId(article.getId()), author);
         }
 
         Article map(NewArticleDto article) {
