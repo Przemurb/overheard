@@ -73,7 +73,7 @@ public class UserDao extends BaseDao {
             } else {
                 return Optional.empty();
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

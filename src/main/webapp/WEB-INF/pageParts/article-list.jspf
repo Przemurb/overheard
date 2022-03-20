@@ -5,7 +5,7 @@
 <c:forEach var="article" items="${requestScope.articles}">
     <article class="article">
         <h2 class="art-header"><c:out value="${article.title}"/></h2>
-        <p class="art-info">Dodane przez Franek, ${article.date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</p>
+        <p class="art-info">Dodane przez: ${article.author}, ${article.date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</p>
         <a href="<c:out value="${article.url}"/>" target="_blank" class="art-link"><c:out value="${article.url}"/></a>
         <p class="art-content"><c:out value="${article.description}"/></p>
         <section class="vote-bar">
