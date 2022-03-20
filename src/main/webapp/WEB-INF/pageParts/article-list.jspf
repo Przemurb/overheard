@@ -19,3 +19,7 @@
         </section>
     </article>
 </c:forEach>
+<%-- Przycisk dodawania artykułów --%>
+<a href="${pageContext.request.contextPath}/article/new" class="add-button">
+    <i class="icon-plus-squared"></i>
+</a>

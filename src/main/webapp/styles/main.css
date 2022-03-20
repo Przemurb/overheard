@@ -163,3 +163,18 @@ footer {
     font-style: italic;
     font-size: 0.8rem;
 }
+
+.add-button {
+    position: fixed;
+    font-size: x-large;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #4CD964;
+    color: #FFF;
+    box-shadow: 2px 2px 3px #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
